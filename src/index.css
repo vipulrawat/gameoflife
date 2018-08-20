@@ -13,15 +13,15 @@ body {
     }
   
   .off {
-    background-color: lightgray;
+    background-color: rgb(197, 197, 197);
   }
   
   .on {
-    background-color: green;
+    background-color: rgb(116, 7, 116);
   }
     
   .box:hover { 
-    background: #00CCFF;
+    background: rgb(133, 86, 160);
   }
   
   .center {

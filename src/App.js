@@ -4,7 +4,8 @@ import Grid from './components/Grid';
 import './index.css';
 
 class Buttons extends Component {
-  handleSelect=(e)=>{
+  handleSelect = (e) => {
+    console.log(e.target.value);
     this.props.gridSize(e.target.value);
   }
   render() {
@@ -60,7 +61,7 @@ class App extends Component {
     let gridCopy = arrayClone(this.state.gridFull);
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        if (Math.floor(Math.random() * 4) === 1) {
+        if (Math.floor(Math.random() * 2) === 1) {
           gridCopy[i][j] = true;
         }
       }
@@ -77,36 +78,43 @@ class App extends Component {
   pauseButton = () => {
     clearInterval(this.intervalId);
   }
-  slow=()=>{
+  slow = () => {
     this.speed = 100;
+    console.log(this.speed);
     this.playButton();
   }
-  fast=()=>{
+  fast = () => {
     this.speed = 1000;
+    console.log(this.speed);
     this.playButton();
   }
-  gridSize=(size)=>{
-    switch(size){
-      case 1:
-        this.cols = 20;
-        this.rows = 10;
+  gridSize = (size) => {
+    console.log("inside switch:"+size);
+    switch (size) {
+      case 3:
+        this.cols = 70;
+        this.rows = 50;
         break;
       case 2:
         this.cols = 50;
         this.rows = 30;
         break;
+      case 1:
+        this.cols = 20;
+        this.rows = 10;
+        break;
       default:
-        this.cols = 70;
-        this.rows = 50;
-        break; 
+        this.cols = 20;
+        this.rows = 10;
+        break;
     }
     this.clear();
   }
-  clear=()=>{
+  clear = () => {
     var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
     this.setState({
-      gridFull:grid,
-      generation:0
+      gridFull: grid,
+      generation: 0
     })
   }
   play = () => {

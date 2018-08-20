@@ -1,4 +1,5 @@
 import React from 'react';
+
 class Box extends React.Component{
     selectBox = () =>{
         this.props.selectBox(this.props.row,this.props.col)
@@ -13,6 +14,7 @@ class Box extends React.Component{
         );
     }
 }
+
 class Grid extends React.Component{
     render(){
         const width = this.props.cols *16;
